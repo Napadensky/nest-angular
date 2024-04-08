@@ -1,1 +1,106 @@
-<p>register works!</p>,
+<div class="container">
+  <div class="card m-auto" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title text-center">Register</h5>
+      <form class="form">
+        <!-- first name -->
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="Enter your first name"
+            [(ngModel)]="firstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <!-- last name -->
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Enter your last name"
+            [(ngModel)]="lastName"
+            name="lastName"
+            required
+          />
+        </div>
+        <!-- age -->
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            placeholder="Enter your age"
+            [(ngModel)]="age"
+            name="age"
+            required
+          />
+        </div>
+        <!-- gender -->
+        <div class="mb-3">
+          <label for="gender" class="form-label">Gender</label>
+          <select
+            class="form-select"
+            id="gender"
+            [(ngModel)]="gender"
+            name="gender"
+            required
+          >
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <!-- pregnancy -->
+        <div class="mb-3">
+          <label for="pregnancy" class="form-label">Pregnancy</label>
+          <input
+            type="text"
+            class="form-control"
+            id="pregnancy"
+            placeholder="Are you pregnant? Yes/No"
+            [(ngModel)]="pregnancy"
+            name="pregnancy"
+          />
+        </div>
+        <!-- birthdate -->
+        <div class="mb-3">
+          <label for="birthdate" class="form-label">Birthdate</label>
+          <input
+            type="date"
+            class="form-control"
+            id="birthdate"
+            placeholder="Enter your birthdate"
+            [(ngModel)]="birthdate"
+            name="birthdate"
+          />
+        </div>
+        <!-- numberPhone -->
+        <div class="mb-3">
+          <label for="numberPhone" class="form-label">Number Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="numberPhone"
+            placeholder="Enter your phone number"
+            [(ngModel)]="numberPhone"
+            name="numberPhone"
+          />
+        </div>
+        <!-- create buton form -->
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary" type="button">
+            Button
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
