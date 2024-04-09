@@ -1,0 +1,172 @@
+<div class="position-absolute z-3 vw-100">
+  <div
+    *ngFor="let error of errors; index as i"
+    class="alert alert-danger alert-dismissible mb-2"
+    role="alert"
+  >
+    <div>{{ error }}</div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      (click)="removeError(i)"
+    ></button>
+  </div>
+</div>
+
+<div class="container-fluid vh-100 align-content-center">
+  <div class="card m-auto align-content-center" style="width: 24rem">
+    <div class="card-body">
+      <h5 class="card-title text-center">Register</h5>
+      <form (ngSubmit)="save()" [formGroup]="form" #formDir="ngForm" novalidate>
+        <!-- first name -->
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First name</label>
+          <input
+            value=""
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="Enter your first name"
+            name="firstName"
+            required
+            formControlName="firstName"
+          />
+          <span
+            class="text-danger"
+            *ngIf="firstName?.invalid && formDir.submitted"
+          >
+            *Name is required
+          </span>
+        </div>
+        <!-- last name -->
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last name</label>
+          <input
+            value=""
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Enter your last name"
+            name="lastName"
+            required
+            formControlName="lastName"
+          />
+          <span
+            class="text-danger"
+            *ngIf="lastName?.invalid && formDir.submitted"
+          >
+            *Last name is required
+          </span>
+        </div>
+        <!-- age -->
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input
+            class="form-control"
+            formControlName="age"
+            id="age"
+            name="age"
+            placeholder="Enter your age"
+            type="number"
+            value=""
+          />
+          <span class="text-danger" *ngIf="age?.invalid && formDir.submitted">
+            *Age is required
+          </span>
+        </div>
+        <!-- gender -->
+        <div class="mb-3">
+          <label for="gender" class="form-label">Gender</label>
+          <select
+            class="form-select"
+            id="gender"
+            name="gender"
+            required
+            formControlName="gender"
+          >
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <span
+            class="text-danger"
+            *ngIf="gender?.invalid && formDir.submitted"
+          >
+            *Gender is required
+          </span>
+        </div>
+        <!-- pregnancy -->
+        @if(gender && gender.value === 'female'){
+        <div class="mb-3">
+          <label for="pregnancy" class="form-label">Pregnancy</label>
+          <div class="form-check form-switch form-check">
+            <label class="form-check-label" for="pregnancy"
+              >Are you pregnant? No/Yes</label
+            >
+            <input
+              value=""
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="pregnancy"
+              formControlName="pregnancy"
+            />
+          </div>
+          <span
+            class="text-danger"
+            *ngIf="pregnancy?.invalid && formDir.submitted"
+          >
+            *Pregnancy is required
+          </span>
+        </div>
+        }
+        <!-- birthdate -->
+        <div class="mb-3">
+          <label for="birthdate" class="form-label">Birthdate</label>
+          <input
+            value=""
+            type="date"
+            class="form-control"
+            id="birthdate"
+            placeholder="Enter your birthdate"
+            name="birthdate"
+            formControlName="birthdate"
+          />
+          <span
+            class="text-danger"
+            *ngIf="birthdate?.invalid && formDir.submitted"
+          >
+            *Birthdate is required
+          </span>
+        </div>
+        <!-- numberPhone -->
+        <div class="mb-3">
+          <label for="numberPhone" class="form-label">Number Phone</label>
+          <input
+            value=""
+            class="form-control"
+            formControlName="phoneNumber"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Enter your number phone +999999999999"
+            type="tel"
+          />
+          <span
+            class="text-danger"
+            *ngIf="phoneNumber?.invalid && formDir.submitted"
+          >
+            *Number phone is required
+          </span>
+        </div>
+        <!-- create buton form -->
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">
+            Go to dashboard!
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

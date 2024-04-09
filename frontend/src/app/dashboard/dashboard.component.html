@@ -1,0 +1,30 @@
+<nav class="navbar bg-body-tertiary mb-5" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Dashboard</span>
+  </div>
+</nav>
+<div class="container">
+  <div class="card m-auto mb-4" style="width: 18rem" *ngIf="user">
+    <div class="card-body">
+      <h5 class="card-title text-center">Welcome 👋</h5>
+      <p class="card-text text-center">
+        {{ user.firstName }} {{ user.lastName }}
+      </p>
+    </div>
+  </div>
+
+  <div class="card m-auto" style="width: 18rem" *ngIf="user">
+    <div class="card-body">
+      <h5 class="card-title text-center">Your information 📝</h5>
+      <p class="card-text">🟢 Age 👉 {{ user.age }}</p>
+      <p class="card-text">
+        🟢 Birthdate 👉 {{ formatDate(user.birthdate.toString()) }}
+      </p>
+      <p class="card-text">🟢 Gender 👉 {{ user.gender }}</p>
+      <p class="card-text">
+        🟢 Pregnancy 👉 {{ user.pregnancy ? "SI" : "NO" }}
+      </p>
+      <p class="card-text">🟢 Phone 👉 {{ user.phoneNumber }}</p>
+    </div>
+  </div>
+</div>
