@@ -10,7 +10,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/user/:_id',
     component: DashboardComponent,
     // redirectTo: 'dashboard',
     pathMatch: 'full',

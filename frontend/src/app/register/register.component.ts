@@ -61,8 +61,9 @@ export class RegisterComponent {
 
     //TODO: Add a loader
     this.userService.insert(userModel).subscribe(
-      (data) => {
-        this.router.navigate(['/dashboard', data]);
+      (data: any) => {
+        console.log(data);
+        this.router.navigate(['/dashboard/user/' + data._id]);
       },
       (err: HttpErrorResponse) => {
         this.errors = [...err.error.message];
