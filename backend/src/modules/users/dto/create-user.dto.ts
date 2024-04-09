@@ -11,6 +11,7 @@ import {
   IsPhoneNumber,
   Matches,
 } from 'class-validator';
+import { IsBeforeNow } from 'src/decorator/IsAfterNow.decorator';
 
 export class CreateUserDto {
   @IsString()
@@ -34,6 +35,7 @@ export class CreateUserDto {
 
   @Type(() => Date)
   @IsDate()
+  @IsBeforeNow()
   birthdate: Date;
 
   @Matches(/^[0-9,+,$]*$/, {
