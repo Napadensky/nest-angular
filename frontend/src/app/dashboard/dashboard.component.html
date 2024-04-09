@@ -17,9 +17,13 @@
     <div class="card-body">
       <h5 class="card-title text-center">Your information 📝</h5>
       <p class="card-text">🟢 Age 👉 {{ user.age }}</p>
-      <p class="card-text">🟢 Birthdate 👉 {{ formatDate(user.birthdate.toString()) }}</p>
+      <p class="card-text">
+        🟢 Birthdate 👉 {{ formatDate(user.birthdate.toString()) }}
+      </p>
       <p class="card-text">🟢 Gender 👉 {{ user.gender }}</p>
-      <p class="card-text">🟢 Pregnancy 👉 {{ user.pregnancy }}</p>
+      <p class="card-text">
+        🟢 Pregnancy 👉 {{ user.pregnancy ? "SI" : "NO" }}
+      </p>
       <p class="card-text">🟢 Phone 👉 {{ user.phoneNumber }}</p>
     </div>
   </div>
