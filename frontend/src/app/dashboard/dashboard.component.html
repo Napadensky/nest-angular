@@ -4,15 +4,23 @@
   </div>
 </nav>
 <div class="container">
-  <div class="card m-auto" style="width: 18rem">
+  <div class="card m-auto mb-4" style="width: 18rem" *ngIf="user">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+      <h5 class="card-title text-center">Welcome 👋</h5>
+      <p class="card-text text-center">
+        {{ user.firstName }} {{ user.lastName }}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-      <button (click)="goToList()" class="btn btn-primary">go</button>
+    </div>
+  </div>
+
+  <div class="card m-auto" style="width: 18rem" *ngIf="user">
+    <div class="card-body">
+      <h5 class="card-title text-center">Your information 📝</h5>
+      <p class="card-text">🟢 Age 👉 {{ user.age }}</p>
+      <p class="card-text">🟢 Birthdate 👉 {{ formatDate(user.birthdate.toString()) }}</p>
+      <p class="card-text">🟢 Gender 👉 {{ user.gender }}</p>
+      <p class="card-text">🟢 Pregnancy 👉 {{ user.pregnancy }}</p>
+      <p class="card-text">🟢 Phone 👉 {{ user.phoneNumber }}</p>
     </div>
   </div>
 </div>

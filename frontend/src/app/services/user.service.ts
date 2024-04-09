@@ -11,7 +11,6 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getById(id: string) {
-    console.log(`${this.endpoint}/${id}`)
     return this.http.get(`${this.endpoint}/${id}`);
   }
 

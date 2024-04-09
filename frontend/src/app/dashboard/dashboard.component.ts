@@ -13,11 +13,10 @@ export class DashboardComponent {
   user: UserModel;
 
   constructor(
-    private router: Router,
     private userService: UserService,
-    private avRoute: ActivatedRoute
+    private avRoute: ActivatedRoute,
+    private router: Router
   ) {
-    console.log('dashboard');
     this.userId = this.avRoute.snapshot.params['_id'];
   }
 
@@ -25,17 +24,18 @@ export class DashboardComponent {
     this.userService.getById(this.userId).subscribe(
       (data) => {
         this.user = data as UserModel;
-        console.log(this.user);
+        if (!this.user) {
+          this.router.navigate(['/register']);
+        }
       },
       (err: HttpErrorResponse) => {
-        console.log(err.message);
+        console.error(err.message);
+        this.router.navigate(['/register']);
       }
     );
   }
 
-  goToList() {
-    // this.router.navigate(['/admin']);
-    console.log('go to list');
-    this.router.navigate(['']);
+  formatDate(date: string) {
+    return new Date(date).toLocaleDateString();
   }
 }

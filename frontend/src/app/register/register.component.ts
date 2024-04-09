@@ -30,9 +30,7 @@ export class RegisterComponent {
     });
   }
 
-  ngOnInit() {
-    // console.log(this.form);
-  }
+  ngOnInit() {}
 
   removeError(index: number) {
     this.errors.splice(index, 1);
@@ -54,15 +52,12 @@ export class RegisterComponent {
     userModel.birthdate = this.birthdate?.value;
     userModel.phoneNumber = this.phoneNumber?.value;
 
-    console.log(userModel);
-
     if (this.gender?.value == 'female')
       userModel.pregnancy = this.pregnancy?.value;
 
     //TODO: Add a loader
     this.userService.insert(userModel).subscribe(
       (data: any) => {
-        console.log(data);
         this.router.navigate(['/dashboard/user/' + data._id]);
       },
       (err: HttpErrorResponse) => {
