@@ -30,10 +30,19 @@ export class RegisterComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log(this.form);
+  }
+
+  removeError(index: number) {
+    this.errors.splice(index, 1);
+  }
+
+  isMale() {
+    return this.gender?.value === 'male';
+  }
 
   save() {
-    console.log('asdasdasdasd');
     if (!this.form.valid) return;
 
     let userModel = new UserModel();
@@ -41,8 +50,11 @@ export class RegisterComponent {
     userModel.lastName = this.lastName?.value;
     userModel.age = this.age?.value;
     userModel.gender = this.gender?.value;
+    userModel.pregnancy = this.isMale() ? false : this.pregnancy?.value;
     userModel.birthdate = this.birthdate?.value;
     userModel.phoneNumber = this.phoneNumber?.value;
+
+    console.log(userModel);
 
     if (this.gender?.value == 'female')
       userModel.pregnancy = this.pregnancy?.value;
@@ -53,14 +65,9 @@ export class RegisterComponent {
         this.router.navigate(['/dashboard', data]);
       },
       (err: HttpErrorResponse) => {
-        this.errors = [err.error.error];
+        this.errors = [...err.error.message];
       }
     );
-    this.router.navigate(['/dashboard']);
-  }
-
-  goToList() {
-    this.router.navigate(['/admin']);
   }
 
   get firstName() {

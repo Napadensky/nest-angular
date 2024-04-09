@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './routing/app.routing.module';
 
 import { UserService } from './services/user.service';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, RegisterComponent],
@@ -18,7 +19,8 @@ import { UserService } from './services/user.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbAlertModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
