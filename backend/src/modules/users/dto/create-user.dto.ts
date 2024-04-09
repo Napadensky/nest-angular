@@ -18,7 +18,7 @@ export class CreateUserDto {
   firstName: string;
 
   @IsString()
-  @MaxLength(25, { message: 'lastName name is too long' })
+  @MaxLength(25, { message: 'lastName is too long' })
   lastName: string;
 
   @IsNumber()
